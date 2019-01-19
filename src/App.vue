@@ -10,11 +10,11 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <corren></corren>
+          <corren v-on:changeCorrency="changeCorrency"></corren>
         </div>
 
         <div class="col-md-9">
-          <tikets></tikets>
+          <tikets :course="course"></tikets>
         </div>
       </div>
     </div>
@@ -30,11 +30,30 @@ export default {
     corren,
     tikets
   },
-  name: "app"
+  name: "app",
+  data() {
+    return {
+      course: 1
+    };
+  },
+  methods: {
+    changeCorrency(value) {
+      this.course = value;
+    }
+  }
+  // filters: {
+  //   corrent: function(value) {}
+  // }
 };
 </script>
 
 <style>
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #f3f7fa;
+  color: #4a4a4a;
+  font-size: 12px;
+}
 html,
 body,
 #app {

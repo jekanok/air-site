@@ -78,16 +78,19 @@ export default {
       this.isActiveeur = false;
       this.isActiveusd = false;
       this.isActiverub = true;
+      this.$emit("changeCorrency", 1);
     },
     moneyusd() {
       this.isActiveeur = false;
       this.isActiveusd = true;
       this.isActiverub = false;
+      this.$emit("changeCorrency", 58);
     },
     moneyeur() {
       this.isActiveeur = true;
       this.isActiveusd = false;
       this.isActiverub = false;
+      this.$emit("changeCorrency", 65);
     }
   },
   components: {}

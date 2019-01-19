@@ -3,16 +3,18 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="logo d-flex justify-content-center"> <img src="./assets/logo.svg" alt="Авиа билеты"> </div>
+          <div class="logo d-flex justify-content-center">
+            <img src="./assets/logo.svg" alt="Авиа билеты">
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
-          <!-- <corren></corren> -->
+          <corren></corren>
         </div>
 
         <div class="col-md-9">
-          <!-- <tikets></tikets> -->
+          <tikets></tikets>
         </div>
       </div>
     </div>
@@ -20,7 +22,14 @@
 </template>
 
 <script>
+import corren from "./components/Corren";
+import tikets from "./components/Tikets";
+
 export default {
+  components: {
+    corren,
+    tikets
+  },
   name: "app"
 };
 </script>

@@ -29,31 +29,67 @@
         <ul class="list-group w-100">
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="defaultCheck1">
+              <input
+                class="form-check-input"
+                v-model="transplant"
+                type="checkbox"
+                checked
+                value="all"
+                id="defaultCheck1"
+                @click="transplants"
+              >
               <label class="form-check-label" for="defaultCheck1">Все</label>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="defaultCheck2">
+              <input
+                class="form-check-input"
+                v-model="transplant"
+                type="checkbox"
+                value="nothing"
+                id="defaultCheck2"
+                @click="transplants"
+              >
               <label class="form-check-label" for="defaultCheck2">Без пересадок</label>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="defaultCheck3">
+              <input
+                class="form-check-input"
+                v-model="transplant"
+                type="checkbox"
+                value="one"
+                id="defaultCheck3"
+                @click="transplants"
+              >
               <label class="form-check-label" for="defaultCheck3">1 пересадка</label>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="defaultCheck4">
+              <input
+                class="form-check-input"
+                v-model="transplant"
+                type="checkbox"
+                value="two"
+                id="defaultCheck4"
+                @click="transplants"
+              >
               <label class="form-check-label" for="defaultCheck4">2 пересадки</label>
             </div>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value id="defaultCheck5">
+              <input
+                class="form-check-input"
+                v-model="transplant"
+                type="checkbox"
+                value="three"
+                id="defaultCheck5"
+                @click="transplants"
+              >
               <label class="form-check-label" for="defaultCheck5">3 пересадки</label>
             </div>
           </li>
@@ -70,7 +106,8 @@ export default {
     return {
       isActiverub: true,
       isActiveusd: false,
-      isActiveeur: false
+      isActiveeur: false,
+      transplant: []
     };
   },
   methods: {
@@ -91,6 +128,9 @@ export default {
       this.isActiveusd = false;
       this.isActiverub = false;
       this.$emit("changeCorrency", 65);
+    },
+    transplants() {
+      this.$emit("transplants", this.transplant);
     }
   },
   components: {}

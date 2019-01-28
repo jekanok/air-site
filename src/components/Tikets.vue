@@ -82,7 +82,7 @@ import ticketsData from "../assets/tickets.json";
 
 export default {
   name: "tikets",
-  props: ["course"],
+  props: ["course", "translate"],
   data() {
     return {
       info: null,
@@ -100,6 +100,9 @@ export default {
   filters: {
     money: function(value) {
       return value.toFixed(2);
+    },
+    computed: {
+      sort() {}
     }
   }
 };

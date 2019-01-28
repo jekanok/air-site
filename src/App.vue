@@ -10,11 +10,11 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <corren v-on:changeCorrency="changeCorrency"></corren>
+          <corren v-on:changeCorrency="changeCorrency" v-on:transplants="chengTransplants"></corren>
         </div>
 
         <div class="col-md-9">
-          <tikets :course="course"></tikets>
+          <tikets :course="course" :translate="transplants"></tikets>
         </div>
       </div>
     </div>
@@ -33,12 +33,16 @@ export default {
   name: "app",
   data() {
     return {
-      course: 1
+      course: 1,
+      transplants: []
     };
   },
   methods: {
     changeCorrency(value) {
       this.course = value;
+    },
+    chengTransplants(value) {
+      this.transplants = value;
     }
   }
   // filters: {

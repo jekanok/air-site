@@ -11,7 +11,7 @@
               <button type="button" class="btn btn-primary btn-lg">
                 Купить
                 <br>
-                за {{infos.price}}
+                за {{ convertCurrency(infos.price) | money}}
                 <i class="fas fa-ruble-sign"></i>
               </button>
             </div>
@@ -82,6 +82,7 @@ import ticketsData from "../assets/tickets.json";
 
 export default {
   name: "tikets",
+  props: ["course", "translate"],
   data() {
     return {
       info: null,
@@ -90,6 +91,19 @@ export default {
   },
   mounted() {
     this.info = ticketsData.tickets;
+  },
+  methods: {
+    convertCurrency(money) {
+      return money / this.course;
+    }
+  },
+  filters: {
+    money: function(value) {
+      return value.toFixed(2);
+    },
+    computed: {
+      sort() {}
+    }
   }
 };
 </script>

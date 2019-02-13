@@ -1,6 +1,7 @@
+<!--
 <template>
   <div>
-    <div class="content" v-for="(infos, index) in info" :key="index">
+    <div class="content" v-for="(infos, index) in sortedInfo " :key="index">
       <div class="row">
         <div class="col-md-4">
           <div class="tiket-buy">
@@ -8,7 +9,7 @@
               <img src="../assets/logo_brand.svg" alt>
             </div>
             <div class="tiket_btn">
-              <button type="button" class="btn btn-primary btn-lg">
+              <button type="button" class="btn btn-primary btn-lg" @click="click">
                 Купить
                 <br>
                 за {{ convertCurrency(infos.price) | money}}
@@ -85,25 +86,34 @@ export default {
   props: ["course", "translate"],
   data() {
     return {
-      info: null,
-      isActive: true
+      info: ticketsData.tickets,
+      isActive: true,
+      translate: "all"
     };
-  },
-  mounted() {
-    this.info = ticketsData.tickets;
   },
   methods: {
     convertCurrency(money) {
       return money / this.course;
+    },
+    click() {
+      console.log(this.translate);
     }
   },
   filters: {
     money: function(value) {
       return value.toFixed(2);
-    },
-    computed: {
-      sort() {}
+    }
+  },
+  computed: {
+    sortedInfo() {
+      function compare(a, b) {
+        if (a.stops < b.stops) return -1;
+        if (a.stops > b.stops) return 1;
+        return 0;
+      }
+      return this.info.sort(compare);
     }
   }
 };
 </script>
+-->

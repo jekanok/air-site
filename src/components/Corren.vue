@@ -1,3 +1,4 @@
+<!--
 <template>
   <div class="menu">
     <span>Валюта</span>
@@ -107,7 +108,7 @@ export default {
       isActiverub: true,
       isActiveusd: false,
       isActiveeur: false,
-      transplant: []
+      transplant: ["all"]
     };
   },
   methods: {
@@ -136,3 +137,4 @@ export default {
   components: {}
 };
 </script>
+-->
